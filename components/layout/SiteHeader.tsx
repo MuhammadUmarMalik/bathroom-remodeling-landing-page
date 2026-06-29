@@ -43,7 +43,7 @@ export function SiteHeader() {
           solidBg ? 'bg-navy shadow-lg' : 'bg-transparent'
         )}
       >
-        <div className="mx-auto flex h-18 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
+        <div className="flex h-18 items-center px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
             className="flex shrink-0 items-center gap-2"
