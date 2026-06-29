@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
-import { CITY, STATE, COMPANY_NAME, SITE_URL, PHONE } from '@/lib/constants'
+import { BRAND } from '@/lib/constants'
+
+const CITY = 'Austin'
+const STATE = 'TX'
 
 export const siteMetadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
+  metadataBase: new URL(BRAND.siteUrl),
   title: {
-    default: `Bathroom Remodeling in ${CITY}, ${STATE} | ${COMPANY_NAME}`,
-    template: `%s | ${COMPANY_NAME}`,
+    default: `Bathroom Remodeling in ${CITY}, ${STATE} | ${BRAND.name}`,
+    template: `%s | ${BRAND.name}`,
   },
-  description: `Top-rated bathroom remodeling in ${CITY}, ${STATE}. Full remodels, shower conversions & tile work. Free consultations. Call ${PHONE} today.`,
+  description: `Top-rated bathroom remodeling in ${CITY}, ${STATE}. Full remodels, shower conversions & tile work. Free consultations. Call ${BRAND.phone} today.`,
   keywords: [
     `bathroom remodeling ${CITY}`,
     `bathroom renovation ${CITY} ${STATE}`,
@@ -18,9 +21,9 @@ export const siteMetadata: Metadata = {
     'bathroom contractor Austin',
     'bathroom remodel cost Austin TX',
   ],
-  authors: [{ name: COMPANY_NAME, url: SITE_URL }],
-  creator: COMPANY_NAME,
-  publisher: COMPANY_NAME,
+  authors: [{ name: BRAND.name, url: BRAND.siteUrl }],
+  creator: BRAND.name,
+  publisher: BRAND.name,
   robots: {
     index: true,
     follow: true,
@@ -32,28 +35,28 @@ export const siteMetadata: Metadata = {
     },
   },
   alternates: {
-    canonical: SITE_URL,
+    canonical: BRAND.siteUrl,
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: SITE_URL,
-    title: `Bathroom Remodeling in ${CITY}, ${STATE} | ${COMPANY_NAME}`,
+    url: BRAND.siteUrl,
+    title: `Bathroom Remodeling in ${CITY}, ${STATE} | ${BRAND.name}`,
     description: `Top-rated bathroom remodeling in ${CITY}, ${STATE}. Full remodels, shower conversions & tile work. Free consultations. Call today.`,
-    siteName: COMPANY_NAME,
+    siteName: BRAND.name,
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`,
+        url: `${BRAND.siteUrl}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: `${COMPANY_NAME} — Bathroom Remodeling in ${CITY}, ${STATE}`,
+        alt: `${BRAND.name} — Bathroom Remodeling in ${CITY}, ${STATE}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Bathroom Remodeling in ${CITY}, ${STATE} | ${COMPANY_NAME}`,
+    title: `Bathroom Remodeling in ${CITY}, ${STATE} | ${BRAND.name}`,
     description: `Top-rated bathroom remodeling in ${CITY}, ${STATE}. Free consultations. Call today.`,
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: [`${BRAND.siteUrl}/og-image.jpg`],
   },
 }

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { siteMetadata } from './metadata'
-import { getLocalBusinessSchema } from '@/lib/schema'
+// import { getLocalBusinessSchema } from '@/lib/schema'
 import './globals.css'
 
 export const metadata = siteMetadata
@@ -22,7 +22,7 @@ const playfair = Playfair_Display({
 })
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const schema = getLocalBusinessSchema()
+  // const schema = getLocalBusinessSchema()
 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
@@ -30,11 +30,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Google Tag Manager placeholder — replace GTM-XXXXXXX with your ID */}
         {/* <script ... /> */}
 
-        {/* JSON-LD LocalBusiness Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+       
       </head>
       <body className="min-h-screen flex flex-col antialiased">
         {/* Google Tag Manager noscript placeholder */}

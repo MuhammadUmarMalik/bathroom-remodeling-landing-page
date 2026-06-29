@@ -1,0 +1,205 @@
+/* MagicBento – Light Theme */
+
+/* ── Grid ───────────────────────────────────────────────────────────────────── */
+
+.magic-bento-light.card-grid {
+  display: grid;
+  gap: 0.625rem;
+  padding: 0;
+  width: 100%;
+}
+
+/* ── Card base ──────────────────────────────────────────────────────────────── */
+
+.magic-bento-light .magic-bento-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  min-height: 150px;
+  width: 100%;
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  overflow: hidden;
+  cursor: default;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 220px;
+  --glow-color: 224, 120, 48;
+}
+
+.magic-bento-light .magic-bento-card:hover {
+  border-color: #CBD5E1;
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px 16px rgba(224, 120, 48, 0.07),
+    0 2px 6px rgba(27, 42, 74, 0.04);
+}
+
+/* ── Icon badge ─────────────────────────────────────────────────────────────── */
+
+.magic-bento-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 10px;
+  background: rgba(224, 120, 48, 0.1);
+  color: #C4662A;
+  flex-shrink: 0;
+}
+
+/* ── Text content ───────────────────────────────────────────────────────────── */
+
+.magic-bento-light .magic-bento-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  position: relative;
+}
+
+.magic-bento-light .magic-bento-card__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #C4662A;
+  line-height: 1;
+}
+
+.magic-bento-light .magic-bento-card__title {
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  color: #1B2A4A;
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.magic-bento-light .magic-bento-card__description {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #6B7280;
+  margin: 0;
+}
+
+/* ── Text auto-hide ─────────────────────────────────────────────────────────── */
+
+.magic-bento-light .magic-bento-card--text-autohide .magic-bento-card__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.magic-bento-light .magic-bento-card--text-autohide .magic-bento-card__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Border glow ────────────────────────────────────────────────────────────── */
+
+.magic-bento-light .magic-bento-card--border-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: radial-gradient(
+    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+    rgba(var(--glow-color), calc(var(--glow-intensity) * 0.9)) 0%,
+    rgba(var(--glow-color), calc(var(--glow-intensity) * 0.4)) 30%,
+    transparent 60%
+  );
+  border-radius: inherit;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.magic-bento-light .magic-bento-card--border-glow:hover {
+  box-shadow:
+    0 4px 20px rgba(224, 120, 48, 0.1),
+    0 0 28px rgba(224, 120, 48, 0.06);
+}
+
+/* ── Particle container ─────────────────────────────────────────────────────── */
+
+.magic-bento-light .particle-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Bento section wrapper ──────────────────────────────────────────────────── */
+
+.magic-bento-light.bento-section {
+  position: relative;
+  user-select: none;
+}
+
+/* ── Responsive grid ────────────────────────────────────────────────────────── */
+
+@media (max-width: 599px) {
+  .magic-bento-light.card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .magic-bento-light .magic-bento-card {
+    min-height: 130px;
+  }
+}
+
+@media (min-width: 600px) {
+  .magic-bento-light.card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .magic-bento-light.card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* With 7 cards on 4 cols:
+     Row 1: 1 2 3 4
+     Row 2: 5(wide) 6 7
+     Card 5 spans 2 cols so row 2 fills evenly */
+  .magic-bento-light .magic-bento-card:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .magic-bento-light .magic-bento-card:nth-child(5) .magic-bento-card__title {
+    font-size: 1.0625rem;
+  }
+}
+
+/* ── Global spotlight (light blend) ────────────────────────────────────────── */
+
+.global-spotlight {
+  mix-blend-mode: multiply;
+  will-change: left, top, opacity;
+  z-index: 200 !important;
+  pointer-events: none;
+}
