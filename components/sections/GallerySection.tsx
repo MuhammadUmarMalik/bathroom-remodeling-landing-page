@@ -1,14 +1,19 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { Phone } from 'lucide-react'
 import { BRAND, GALLERY_SECTION } from '@/lib/constants'
 import { Section, Container } from '@/components/layout'
 import { SectionHeading, Button, ScrollReveal } from '@/components/ui'
-import CircularGallery from '@/components/ui/CircularGallery'
+
+const CircularGallery = dynamic(() => import('@/components/ui/CircularGallery'), {
+  ssr: false,
+  loading: () => <div style={{ height: '580px' }} className="w-full animate-pulse bg-warm-gray/60 rounded-lg" />,
+})
 
 const GALLERY_ITEMS = [
   {
-    image: '/BM-1%20(1).png',
+    image: '/BM-1-1.png',
     text: 'Master Bath Remodel',
     details: {
       'Project Type': 'Full Bathroom Remodel',
@@ -18,7 +23,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-1%20(2).png',
+    image: '/BM-1-2.png',
     text: 'Walk-in Shower',
     details: {
       'Project Type': 'Shower Replacement',
@@ -28,7 +33,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-1%20(3).png',
+    image: '/BM-1-3.png',
     text: 'Tile & Flooring',
     details: {
       'Project Type': 'Tile & Flooring Update',
@@ -38,7 +43,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-1%20(4).png',
+    image: '/BM-1-4.png',
     text: 'Vanity Update',
     details: {
       'Project Type': 'Vanity & Storage Update',
@@ -48,7 +53,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-BA%20(1).png',
+    image: '/BM-BA-1.png',
     text: 'Before & After',
     details: {
       'Project Type': 'Full Bathroom Remodel',
@@ -58,7 +63,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-BA%20(2).png',
+    image: '/BM-BA-2.png',
     text: 'Full Remodel',
     details: {
       'Project Type': 'Full Bathroom Remodel',
@@ -68,7 +73,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-BA%20(3).png',
+    image: '/BM-BA-3.png',
     text: 'Bathroom Design',
     details: {
       'Project Type': 'Design & Renovation',
@@ -78,7 +83,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-BA%20(4).png',
+    image: '/BM-BA-4.png',
     text: 'Tub Conversion',
     details: {
       'Project Type': 'Tub-to-Shower Conversion',

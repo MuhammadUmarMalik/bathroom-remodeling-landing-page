@@ -22,6 +22,8 @@ export function HeroSection() {
         muted
         loop
         playsInline
+        preload="none"
+        poster="/hero-image.png"
         className="absolute inset-0 z-0 h-full w-full object-cover"
         aria-hidden="true"
       >
