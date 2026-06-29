@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react'
 import { Inter, Playfair_Display } from 'next/font/google'
 import { siteMetadata } from './metadata'
+import { SiteHeader } from '@/components/layout'
+import { Footer } from '@/components/sections'
 // import { getLocalBusinessSchema } from '@/lib/schema'
 import './globals.css'
 
@@ -35,7 +37,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="min-h-screen flex flex-col antialiased">
         {/* Google Tag Manager noscript placeholder */}
         {/* <noscript>...</noscript> */}
+        <SiteHeader />
         {children}
+        <Footer />
       </body>
     </html>
   )

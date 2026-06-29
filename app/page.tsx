@@ -1,4 +1,3 @@
-import { SiteHeader } from '@/components/layout'
 import {
   HeroSection,
   ProblemSection,
@@ -12,27 +11,22 @@ import {
   ServiceAreaSection,
   FAQSection,
   FinalCTASection,
-  Footer,
 } from '@/components/sections'
 
 export default function HomePage() {
   return (
-    <>
-      <SiteHeader />
-      <main>
-        <HeroSection />
-        <ProblemSection />
-        <ServicesSection />
-        <GallerySection />
-        <BenefitsSection />
-        <ProcessSection />
-        <WhyChooseUsSection />
-        <ReviewsSection />
-        <ServiceAreaSection />
-        <FAQSection />
-        <FinalCTASection />
-      </main>
-      <Footer />
-    </>
+    <main>
+      <HeroSection />
+      <ProblemSection />
+      <ServicesSection />
+      <GallerySection />
+      <BenefitsSection />
+      <ProcessSection />
+      <WhyChooseUsSection />
+      <ReviewsSection />
+      <ServiceAreaSection />
+      <FAQSection />
+      <FinalCTASection />
+    </main>
   )
 }
