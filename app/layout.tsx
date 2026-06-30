@@ -30,6 +30,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <head>
+        {/* Preload hero image so LCP resolves before JS hydration */}
+        <link rel="preload" as="image" href="/hero-image.webp" fetchPriority="high" />
+
         {/* Google Tag Manager placeholder — replace GTM-XXXXXXX with your ID */}
         {/* <script ... /> */}
 

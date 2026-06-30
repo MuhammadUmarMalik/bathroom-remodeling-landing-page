@@ -26,9 +26,7 @@ const WhyChooseUsSection = dynamic(
 const ReviewsSection = dynamic(
   () => import('@/components/sections/ReviewsSection').then(m => ({ default: m.ReviewsSection })),
 )
-const ConsultationOfferSection = dynamic(
-  () => import('@/components/sections/ConsultationOfferSection').then(m => ({ default: m.ConsultationOfferSection })),
-)
+
 const ServiceAreaSection = dynamic(
   () => import('@/components/sections/ServiceAreaSection').then(m => ({ default: m.ServiceAreaSection })),
 )
@@ -50,7 +48,7 @@ export default function HomePage() {
       <ProcessSection />
       <WhyChooseUsSection />
       <ReviewsSection />
-      <ConsultationOfferSection />
+    
       <ServiceAreaSection />
       <FAQSection />
       <FinalCTASection />

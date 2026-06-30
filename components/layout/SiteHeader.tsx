@@ -1,12 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+// framer-motion removed: replaced with native scroll listener + CSS transition.
+// StaggeredMenu is lazy-loaded (ssr:false) so GSAP is NOT in the initial JS bundle.
+
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import { BRAND, NAV_LINKS } from '@/lib/constants'
 import { cn } from '@/lib/cn'
-import StaggeredMenu from './StaggeredMenu'
+
+const StaggeredMenu = dynamic(
+  () => import('./StaggeredMenu').then(m => ({ default: m.StaggeredMenu ?? m.default })),
+  { ssr: false }
+)
 
 const MENU_ITEMS = [
   ...NAV_LINKS.map((link) => ({
@@ -23,21 +30,23 @@ const MENU_ITEMS = [
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
-  const pathname                = usePathname()
-  const { scrollY } = useScroll()
+  const pathname             = usePathname()
 
-  // Only the home page has a dark hero — everywhere else the header is always solid.
   const onHeroPage = pathname === '/'
   const solidBg    = !onHeroPage || scrolled
 
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setScrolled(latest > 24)
-  })
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 24)
+    window.addEventListener('scroll', handler, { passive: true })
+    // Run once immediately in case page is already scrolled (e.g. back-navigation)
+    handler()
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
 
   return (
     <>
-      {/* Sticky logo bar — always visible; transparent on home hero, solid navy once scrolled */}
-      <motion.header
+      {/* Primary site header — only banner landmark on the page */}
+      <header
         className={cn(
           'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
           solidBg ? 'bg-navy shadow-lg' : 'bg-transparent'
@@ -54,9 +63,9 @@ export function SiteHeader() {
             </span>
           </Link>
         </div>
-      </motion.header>
+      </header>
 
-      {/* Full-screen nav overlay — active on every viewport */}
+      {/* Full-screen nav overlay */}
       <div
         style={{
           position: 'fixed',

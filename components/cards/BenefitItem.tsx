@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import * as Icons from 'lucide-react'
+import { ICON_MAP } from '@/lib/icons'
 
 type BenefitItemProps = {
   icon: string
@@ -11,9 +11,7 @@ type BenefitItemProps = {
 }
 
 export function BenefitItem({ icon, text, index = 0 }: BenefitItemProps) {
-  const IconComponent =
-    (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[icon] ??
-    Icons.Check
+  const IconComponent = ICON_MAP[icon] ?? ICON_MAP.Check
 
   return (
     <motion.div

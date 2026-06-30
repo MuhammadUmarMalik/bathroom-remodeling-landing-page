@@ -1,6 +1,8 @@
-'use client'
+// Server Component — no 'use client', no framer-motion, no JS for animations.
+// Animations are pure CSS (globals.css) so the h1 (LCP element) renders immediately
+// without waiting for hydration. The CTA pulse ring uses CSS @keyframes, not JS.
+// The video uses <source media="(min-width: 768px)"> so mobile never downloads it.
 
-import { motion } from 'framer-motion'
 import { MapPin, Phone, MessageCircle, FileText, ChevronDown } from 'lucide-react'
 import { BRAND, HERO } from '@/lib/constants'
 import { Container } from '@/components/layout'
@@ -16,7 +18,7 @@ export function HeroSection() {
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden bg-navy-dark pt-18">
 
-      {/* ── Background: static WebP on mobile, video on md+ ── */}
+      {/* ── Background: static WebP always in DOM, video only on md+ via source media ── */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/hero-image.webp"
@@ -24,8 +26,9 @@ export function HeroSection() {
         aria-hidden="true"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 z-0 h-full w-full object-cover md:hidden"
+        className="absolute inset-0 z-0 h-full w-full object-cover"
       />
+      {/* source media ensures mobile browsers never download the video */}
       <video
         autoPlay
         muted
@@ -33,10 +36,10 @@ export function HeroSection() {
         playsInline
         preload="none"
         poster="/hero-image.webp"
-        className="absolute inset-0 z-0 h-full w-full object-cover hidden md:block"
+        className="absolute inset-0 z-0 h-full w-full object-cover"
         aria-hidden="true"
       >
-        <source src="/hero-section-video.mp4" type="video/mp4" />
+        <source media="(min-width: 768px)" src="/hero-section-video.mp4" type="video/mp4" />
       </video>
 
       {/* ── Overlay ── */}
@@ -59,69 +62,58 @@ export function HeroSection() {
         }}
       />
 
-      {/* ── Main content — flex-1 stretches this to fill space above the trust strip ── */}
+      {/* ── Main content ── */}
       <div className="relative z-10 flex flex-1 items-center">
         <Container className="py-14 sm:py-16 md:py-20 lg:py-24 2xl:py-28">
           <div className="max-w-2xl 2xl:max-w-3xl">
 
-            {/* Location badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, ease: [0, 0, 0.2, 1] }}
-              className="mb-5"
-            >
+            {/* Location badge — CSS fade-in */}
+            <div className="hero-fade-in mb-5" style={{ animationDelay: '0ms' }}>
               <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-gold">
                 <MapPin className="size-3" aria-hidden="true" />
                 Austin, TX · Local Remodeling Team
               </span>
-            </motion.div>
+            </div>
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.1, ease: [0, 0, 0.2, 1] }}
-              className="mb-4 font-serif text-[1.85rem] font-bold leading-[1.1] tracking-tight text-warm-white sm:text-4xl md:text-5xl lg:text-[3.5rem] 2xl:text-6xl"
-            >
+            {/* Headline — NO animation: immediately visible so browser can record LCP */}
+            <h1 className="mb-4 font-serif text-[1.85rem] font-bold leading-[1.1] tracking-tight text-warm-white sm:text-4xl md:text-5xl lg:text-[3.5rem] 2xl:text-6xl">
               {HERO.headline}
-            </motion.h1>
+            </h1>
 
-            {/* Gold accent line */}
-            <motion.div
-              initial={{ scaleX: 0, opacity: 0 }}
-              animate={{ scaleX: 1, opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.18, ease: [0, 0, 0.2, 1] }}
+            {/* Gold accent line — CSS scale-x animation */}
+            <div
               aria-hidden="true"
-              className="mb-5 h-0.5 w-20 origin-left rounded-full"
-              style={{ background: 'linear-gradient(to right, #E07830, transparent)' }}
+              className="hero-scale-x mb-5 h-0.5 w-20 origin-left rounded-full"
+              style={{
+                background: 'linear-gradient(to right, #E07830, transparent)',
+                animationDelay: '80ms',
+              }}
             />
 
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2, ease: [0, 0, 0.2, 1] }}
-              className="mb-8 max-w-full text-base leading-relaxed text-warm-white/72 sm:max-w-lg md:text-lg 2xl:text-xl"
+            {/* Subheadline — CSS fade-in */}
+            <p
+              className="hero-fade-in mb-8 max-w-full text-base leading-relaxed text-warm-white/85 sm:max-w-lg md:text-lg 2xl:text-xl"
+              style={{ animationDelay: '120ms' }}
             >
               {HERO.subheadline}
-            </motion.p>
+            </p>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.3, ease: [0, 0, 0.2, 1] }}
-              className="flex flex-col gap-3 sm:flex-row sm:items-center"
+            {/* CTAs — CSS fade-in */}
+            <div
+              className="hero-fade-in flex flex-col gap-3 sm:flex-row sm:items-center"
+              style={{ animationDelay: '200ms' }}
             >
               <div className="relative inline-flex shrink-0">
-                <motion.span
+                {/* Pulsing ring — pure CSS, zero JS */}
+                <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -inset-1 rounded-full border border-gold/45"
-                  animate={{ scale: [1, 1.18, 1], opacity: [0.55, 0, 0.55] }}
-                  transition={{ duration: 2.4, repeat: Infinity, ease: 'easeOut' }}
+                  className="animate-cta-pulse pointer-events-none absolute -inset-1 rounded-full border border-gold/45"
                 />
-                <Button href={`tel:${BRAND.phone}`} size="lg">
+                <Button
+                  href={`tel:${BRAND.phone}`}
+                  size="lg"
+                  aria-label="Book your free bathroom remodel consultation"
+                >
                   <Phone className="size-4 shrink-0" aria-hidden="true" />
                   {HERO.primaryCta}
                 </Button>
@@ -130,43 +122,33 @@ export function HeroSection() {
               <Button href="#gallery" variant="secondary" size="lg">
                 {HERO.secondaryCta}
               </Button>
-            </motion.div>
+            </div>
 
-            {/* Trust strip — directly below CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.45, ease: [0, 0, 0.2, 1] }}
+            {/* Trust strip */}
+            <div
               aria-label="Trust highlights"
-              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-warm-white/10 pt-5"
+              className="hero-fade-in mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-warm-white/10 pt-5"
+              style={{ animationDelay: '300ms' }}
             >
               {trustItems.map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-sm text-warm-white/60">
+                <div key={text} className="flex items-center gap-2 text-sm text-warm-white/80">
                   <Icon className="size-3.5 shrink-0 text-gold/70" aria-hidden="true" />
                   {text}
                 </div>
               ))}
-            </motion.div>
+            </div>
 
           </div>
         </Container>
       </div>
 
-      {/* ── Scroll indicator ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.85, duration: 0.4 }}
-        className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2"
+      {/* ── Scroll indicator — Tailwind animate-bounce (CSS, no JS) ── */}
+      <div
+        className="animate-bounce absolute bottom-6 left-1/2 z-20 -translate-x-1/2"
         aria-hidden="true"
       >
-        <motion.div
-          animate={{ y: [0, 7, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ChevronDown className="size-5 text-warm-white/25" />
-        </motion.div>
-      </motion.div>
+        <ChevronDown className="size-5 text-warm-white/25" />
+      </div>
 
     </section>
   )

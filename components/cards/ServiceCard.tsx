@@ -2,7 +2,7 @@
 
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import * as Icons from 'lucide-react'
+import { ICON_MAP } from '@/lib/icons'
 import type { Service } from '@/lib/constants'
 
 type ServiceCardProps = {
@@ -23,8 +23,7 @@ export function ServiceCard({ service, index = 0 }: ServiceCardProps) {
   const onMouseLeave = () => setSpot((s) => ({ ...s, visible: false }))
 
   /* Resolve icon name → Lucide component */
-  const IconComponent = (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[service.icon]
-    ?? Icons.Wrench
+  const IconComponent = ICON_MAP[service.icon] ?? ICON_MAP.Wrench
 
   return (
     <motion.div

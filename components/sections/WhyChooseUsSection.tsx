@@ -1,7 +1,7 @@
 'use client'
 
 import { Phone } from 'lucide-react'
-import * as Icons from 'lucide-react'
+import { ICON_MAP } from '@/lib/icons'
 import { motion } from 'framer-motion'
 import { BRAND, TRUST_POINTS, WHY_US_SECTION } from '@/lib/constants'
 import { Section, Container } from '@/components/layout'
@@ -113,27 +113,17 @@ export function WhyChooseUsSection() {
 
             {/* CTA */}
             <div>
-              <motion.div
-                className="inline-flex rounded-full"
-                animate={{
-                  boxShadow: [
-                    '0 0 0 0px rgba(224,120,48,0.5)',
-                    '0 0 0 8px rgba(224,120,48,0.15)',
-                    '0 0 0 18px rgba(224,120,48,0)',
-                  ],
-                }}
-                transition={{ duration: 2.6, repeat: Infinity, ease: 'easeOut' }}
-              >
+              <div className="animate-ring-pulse inline-flex rounded-full">
                 <Button href={`tel:${BRAND.phone}`} size="lg">
                   <Phone className="size-4" aria-hidden="true" />
                   {WHY_US_SECTION.cta}
                 </Button>
-              </motion.div>
+              </div>
             </div>
 
             {/* Trust badge */}
             <div className="mt-8 flex items-center gap-2">
-              <Icons.ShieldCheck className="size-4 shrink-0 text-gold/70" aria-hidden="true" />
+              <ICON_MAP.ShieldCheck className="size-4 shrink-0 text-gold/70" aria-hidden="true" />
               <span className="text-sm text-white/40">
                 Licensed & insured · Austin, TX
               </span>
@@ -149,9 +139,7 @@ export function WhyChooseUsSection() {
               className="divide-y divide-white/7"
             >
               {TRUST_POINTS.map((point, i) => {
-                const IconComponent =
-                  (Icons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[point.icon] ??
-                  Icons.CheckCircle2
+                const IconComponent = ICON_MAP[point.icon] ?? ICON_MAP.CheckCircle2
 
                 return (
                   <motion.li
@@ -199,7 +187,7 @@ export function WhyChooseUsSection() {
                         whileHover={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <Icons.ArrowRight className="size-4" />
+                        <ICON_MAP.ArrowRight className="size-4" />
                       </motion.div>
 
                     </div>
@@ -223,7 +211,7 @@ export function WhyChooseUsSection() {
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center gap-1 px-4 text-center">
                   <span className="font-serif text-xl font-bold text-gold md:text-2xl">{stat.value}</span>
-                  <span className="text-xs text-white/45 md:text-sm">{stat.label}</span>
+                  <span className="text-xs text-white/65 md:text-sm">{stat.label}</span>
                 </div>
               ))}
             </motion.div>

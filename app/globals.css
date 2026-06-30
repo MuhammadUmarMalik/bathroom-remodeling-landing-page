@@ -113,6 +113,46 @@ html {
   animation-play-state: paused;
 }
 
+/* ── Hero CSS animations — start before JS hydration so LCP is unblocked ── */
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-scale-x {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.hero-fade-in {
+  animation: hero-fade-in 0.7s cubic-bezier(0, 0, 0.2, 1) both;
+}
+
+.hero-scale-x {
+  animation: hero-scale-x 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── CTA pulse ring (hero primary button) — pure CSS, zero JS ── */
+@keyframes cta-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50%       { opacity: 0;   transform: scale(1.5); }
+}
+
+.animate-cta-pulse {
+  animation: cta-pulse 2.4s ease-out infinite;
+}
+
+/* ── Ring pulse (WhyChooseUs CTA button glow) — replaces infinite framer-motion ── */
+@keyframes ring-pulse {
+  0%   { box-shadow: 0 0 0 0px rgba(224, 120, 48, 0.5); }
+  60%  { box-shadow: 0 0 0 10px rgba(224, 120, 48, 0.1); }
+  100% { box-shadow: 0 0 0 18px rgba(224, 120, 48, 0); }
+}
+
+.animate-ring-pulse {
+  animation: ring-pulse 2.6s ease-out infinite;
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

@@ -345,7 +345,7 @@ export const StaggeredMenu = ({
           return arr.map((c, i) => <div key={i} className="sm-prelayer" style={{ background: c }} />);
         })()}
       </div>
-      <header className="staggered-menu-header" aria-label="Main navigation header">
+      <div className="staggered-menu-header" role="navigation" aria-label="Main navigation">
         <div className="sm-logo" aria-label="Logo">
           {logoUrl && (
             <img
@@ -360,6 +360,7 @@ export const StaggeredMenu = ({
         </div>
         <button
           ref={toggleBtnRef}
+
           className="sm-toggle"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -379,7 +380,7 @@ export const StaggeredMenu = ({
             <span ref={plusVRef} className="sm-icon-line sm-icon-line-v" />
           </span>
         </button>
-      </header>
+      </div>
 
       <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" aria-hidden={!open}>
         <div className="sm-panel-inner">
