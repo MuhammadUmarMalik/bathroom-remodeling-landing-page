@@ -32,7 +32,7 @@ const fadeUp = {
 
 export function FinalCTASection() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-navy-dark py-24 md:py-32">
+    <section id="contact" className="relative overflow-hidden bg-navy-dark py-16 sm:py-20 md:py-28 lg:py-32 2xl:py-36">
 
       {/* Tile grid texture */}
       <div
@@ -80,7 +80,7 @@ export function FinalCTASection() {
             {/* Headline */}
             <motion.h2
               variants={fadeUp}
-              className="mb-5 font-serif text-4xl font-bold leading-[1.14] text-warm-white md:text-5xl xl:text-[3.4rem]"
+              className="mb-5 font-serif text-[1.85rem] font-bold leading-[1.14] text-warm-white sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-6xl"
             >
               {FINAL_CTA.headline}
             </motion.h2>
@@ -91,7 +91,7 @@ export function FinalCTASection() {
             {/* Subheadline */}
             <motion.p
               variants={fadeUp}
-              className="mb-10 max-w-lg text-lg leading-relaxed text-warm-white/60"
+              className="mb-10 max-w-full text-base leading-relaxed text-warm-white/60 sm:max-w-lg sm:text-lg 2xl:text-xl"
             >
               {FINAL_CTA.subheadline}
             </motion.p>

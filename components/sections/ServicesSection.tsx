@@ -15,7 +15,7 @@ export function ServicesSection() {
           subheadline={SERVICES_SECTION.subheadline}
         />
 
-        <div className="mb-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-14 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:gap-8">
           {SERVICES.map((service, i) => (
             <ServiceCard key={service.id} service={service} index={i} />
           ))}

@@ -8,7 +8,9 @@ import { SectionHeading, Button, ScrollReveal } from '@/components/ui'
 
 const CircularGallery = dynamic(() => import('@/components/ui/CircularGallery'), {
   ssr: false,
-  loading: () => <div style={{ height: '580px' }} className="w-full animate-pulse bg-warm-gray/60 rounded-lg" />,
+  loading: () => (
+    <div className="w-full animate-pulse rounded-lg bg-warm-gray/60 h-75 sm:h-100 md:h-125 lg:h-145 xl:h-155" />
+  ),
 })
 
 const GALLERY_ITEMS = [
@@ -104,7 +106,7 @@ export function GallerySection() {
         />
       </Container>
 
-      <div style={{ height: '580px', position: 'relative' }} className="w-full mb-10">
+      <div className="relative mb-10 w-full h-75 sm:h-100 md:h-125 lg:h-145 xl:h-155">
         <CircularGallery
           items={GALLERY_ITEMS}
           bend={2}

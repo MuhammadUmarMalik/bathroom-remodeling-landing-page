@@ -47,7 +47,7 @@ export function SectionHeading({
   return (
     <motion.div
       className={cn(
-        'mb-12 max-w-3xl',
+        'mb-10 sm:mb-12 max-w-3xl 2xl:max-w-4xl',
         align === 'center' ? 'mx-auto text-center' : 'text-left',
         className
       )}
@@ -57,7 +57,7 @@ export function SectionHeading({
     >
       <h2
         className={cn(
-          'font-serif text-3xl font-bold leading-tight md:text-4xl lg:text-5xl',
+          'font-serif text-[1.75rem] font-bold leading-tight sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl',
           light ? 'text-warm-white' : 'text-navy'
         )}
       >
@@ -77,7 +77,7 @@ export function SectionHeading({
         <motion.p
           variants={subVariants}
           className={cn(
-            'mt-4 text-base leading-relaxed md:text-lg',
+            'mt-4 text-sm leading-relaxed sm:text-base md:text-lg 2xl:text-xl',
             light ? 'text-warm-white/75' : 'text-slate'
           )}
         >

@@ -52,8 +52,8 @@ export function HeroSection() {
 
       {/* ── Main content — flex-1 stretches this to fill space above the trust strip ── */}
       <div className="relative z-10 flex flex-1 items-center">
-        <Container className="py-16 lg:py-20">
-          <div className="max-w-2xl">
+        <Container className="py-14 sm:py-16 md:py-20 lg:py-24 2xl:py-28">
+          <div className="max-w-2xl 2xl:max-w-3xl">
 
             {/* Location badge */}
             <motion.div
@@ -73,7 +73,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.1, ease: [0, 0, 0.2, 1] }}
-              className="mb-4 font-serif text-4xl font-bold leading-[1.1] tracking-tight text-warm-white md:text-5xl lg:text-[3.5rem]"
+              className="mb-4 font-serif text-[1.85rem] font-bold leading-[1.1] tracking-tight text-warm-white sm:text-4xl md:text-5xl lg:text-[3.5rem] 2xl:text-6xl"
             >
               {HERO.headline}
             </motion.h1>
@@ -93,7 +93,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2, ease: [0, 0, 0.2, 1] }}
-              className="mb-8 max-w-lg text-base leading-relaxed text-warm-white/72 md:text-lg"
+              className="mb-8 max-w-full text-base leading-relaxed text-warm-white/72 sm:max-w-lg md:text-lg 2xl:text-xl"
             >
               {HERO.subheadline}
             </motion.p>

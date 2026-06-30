@@ -22,12 +22,12 @@ export const NAV_LINKS = [
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 
 export const HERO = {
-  headline: 'Bathroom Remodeling Services for a More Comfortable Home',
+  headline: 'Expert Bathroom Remodeling in Austin, TX',
   subheadline:
-    'Plan your bathroom remodel with a local remodeling team. Get help with layout, fixtures, materials, timeline, and budget options.',
-  primaryCta: 'Book a Free Consultation',
-  secondaryCta: 'View Recent Bathroom Projects',
-  trustLine: 'Local Bathroom Remodeling Service • Free Consultation • Clear Project Estimate',
+    'Austin homeowners trust Elite Bath & Tile for full remodels, shower conversions, tile work, and vanity updates. Get a free in-home consultation and clear written estimate.',
+  primaryCta: 'Book Your Free Bathroom Remodel Consultation',
+  secondaryCta: 'Request a Free Quote',
+  trustLine: 'Austin, TX Local Remodeling Team • Free In-Home Consultation • Written Estimate',
 } as const
 
 // ─── Lead Form ────────────────────────────────────────────────────────────────
@@ -68,10 +68,10 @@ export const CALL_TIME_OPTIONS = [
 // ─── Problem Section ──────────────────────────────────────────────────────────
 
 export const PROBLEM = {
-  headline: 'Is Your Bathroom Ready for an Update?',
+  headline: 'Is Your Austin Bathroom Ready for an Update?',
   subheadline:
-    'Many homeowners remodel their bathrooms to improve comfort, storage, safety, lighting, and everyday use.',
-  cta: 'Talk to a Remodeling Specialist',
+    'Austin homeowners remodel their bathrooms to improve comfort, storage, safety, lighting, and everyday function. Here are the most common reasons to start.',
+  cta: 'Talk to an Austin Remodeling Specialist',
   points: [
     'Outdated shower or bathtub',
     'Worn flooring or tile',
@@ -86,9 +86,9 @@ export const PROBLEM = {
 // ─── Services ─────────────────────────────────────────────────────────────────
 
 export const SERVICES_SECTION = {
-  headline: 'Bathroom Remodeling Services We Can Help With',
-  subheadline: 'Choose the updates that fit your bathroom, home, and project scope.',
-  cta: 'Get a Free Project Estimate',
+  headline: 'Bathroom Remodeling Services in Austin, TX',
+  subheadline: 'From full gut remodels to targeted updates — choose the scope that fits your bathroom, home, and budget.',
+  cta: 'Request a Free Quote',
 } as const
 
 export type Service = {
@@ -103,42 +103,42 @@ export const SERVICES: Service[] = [
     id: 'full-remodel',
     title: 'Full Bathroom Remodel',
     description:
-      'Update your bathroom layout, vanity, flooring, shower, tub, lighting, and fixtures.',
+      'Complete gut-to-finish remodel for Austin homeowners — new layout, vanity, shower, tile flooring, lighting, and fixtures.',
     icon: 'Bath',
   },
   {
     id: 'shower-replacement',
     title: 'Shower Replacement',
     description:
-      'Replace an older shower with a cleaner, more practical shower system.',
+      'Replace an outdated Austin shower with a cleaner, more functional system — frameless glass, tile surround, or custom pan options.',
     icon: 'ShowerHead',
   },
   {
     id: 'tub-to-shower',
     title: 'Tub-to-Shower Conversion',
     description:
-      'Convert a bathtub into a walk-in shower based on your bathroom layout.',
+      'Convert an unused tub into a spacious walk-in shower. Popular for Austin master bathrooms and aging-in-place updates.',
     icon: 'ArrowRightLeft',
   },
   {
     id: 'vanity-storage',
     title: 'Vanity & Storage Updates',
     description:
-      'Improve storage, counter space, and daily use with a new vanity setup.',
+      'Gain counter space and organized storage with a new vanity, mirrors, lighting, and custom cabinet solutions.',
     icon: 'Package',
   },
   {
     id: 'tile-flooring',
-    title: 'Tile & Flooring Updates',
+    title: 'Tile & Flooring Installation',
     description:
-      'Refresh your bathroom with new tile, flooring, and wall finishes.',
+      'Refresh your Austin bathroom with new floor tile, wall tile, shower surrounds, and decorative accents that last for decades.',
     icon: 'Grid2X2',
   },
   {
     id: 'accessibility',
-    title: 'Accessibility Updates',
+    title: 'Accessibility & Safety Updates',
     description:
-      'Add safer bathroom features such as walk-in access, grab bars, and slip-resistant flooring.',
+      'Walk-in shower conversions, grab bars, barrier-free entry, and slip-resistant flooring for safer everyday use.',
     icon: 'Accessibility',
   },
 ]
@@ -198,10 +198,10 @@ export const PROJECTS: Project[] = [
 // ─── Benefits ─────────────────────────────────────────────────────────────────
 
 export const BENEFITS_SECTION = {
-  headline: 'Make Your Bathroom Easier to Use Every Day',
+  headline: 'Make Your Austin Bathroom Easier to Use Every Day',
   subheadline:
-    'A bathroom remodel can help improve comfort, storage, lighting, and function.',
-  cta: 'Book a Free Consultation',
+    'A bathroom remodel improves comfort, storage, lighting, and function — and adds lasting value to your Austin home.',
+  cta: 'Book Your Free Bathroom Remodel Consultation',
 } as const
 
 export const BENEFITS = [
@@ -218,10 +218,10 @@ export const BENEFITS = [
 // ─── Process ──────────────────────────────────────────────────────────────────
 
 export const PROCESS_SECTION = {
-  headline: 'Our Simple Bathroom Remodeling Process',
+  headline: 'How Austin Bathroom Remodeling Works With Us',
   subheadline:
-    'From the first consultation to the final walkthrough, we keep your remodel clear, clean, and stress-free.',
-  cta: 'Book Your Free Consultation',
+    'From first call to final walkthrough, we keep every Austin remodeling project on schedule, on budget, and stress-free.',
+  cta: 'Book Your Free Bathroom Remodel Consultation',
 } as const
 
 export type ProcessStep = {
@@ -260,10 +260,10 @@ export const PROCESS_STEPS: ProcessStep[] = [
 // ─── Why Choose Us ────────────────────────────────────────────────────────────
 
 export const WHY_US_SECTION = {
-  headline: 'A Bathroom Remodeling Team You Can Talk To Clearly',
+  headline: 'Why Austin Homeowners Choose Elite Bath & Tile',
   subheadline:
-    'From the first call, you get clear communication, project guidance, and practical remodeling options.',
-  cta: 'Speak With a Remodeling Specialist',
+    'From the first call, you get straight answers, a clear written estimate, and a team that respects your home and timeline.',
+  cta: 'Book Your Free Bathroom Remodel Consultation',
 } as const
 
 export const TRUST_POINTS = [
@@ -279,9 +279,9 @@ export const TRUST_POINTS = [
 // ─── Reviews ──────────────────────────────────────────────────────────────────
 
 export const REVIEWS_SECTION = {
-  headline: 'Reviews From Homeowners',
-  subheadline: 'Read what customers say about their remodeling experience.',
-  cta: 'Schedule Your Free Consultation',
+  headline: 'What Austin Homeowners Say About Us',
+  subheadline: 'Real reviews from homeowners across Austin, Round Rock, Cedar Park, and the surrounding areas.',
+  cta: 'Book Your Free Bathroom Remodel Consultation',
 } as const
 
 export type Review = {
@@ -368,11 +368,11 @@ export const REVIEWS: Review[] = [
 // ─── Consultation Offer ───────────────────────────────────────────────────────
 
 export const CONSULTATION_SECTION = {
-  headline: 'Book a Free Bathroom Remodel Consultation',
+  headline: 'Book Your Free Bathroom Remodel Consultation in Austin, TX',
   subheadline:
-    'Talk with a remodeling specialist about your project goals, design ideas, budget range, and next steps.',
-  cta: 'Book My Free Consultation',
-  supportingLine: 'No purchase required to request a consultation.',
+    'Talk with an Austin remodeling specialist about your project goals, design ideas, budget, and timeline. No obligation — just clear next steps.',
+  cta: 'Book Your Free Bathroom Remodel Consultation',
+  supportingLine: 'Free consultation · No purchase required · Serving Austin & surrounding areas',
 } as const
 
 export const CONSULTATION_FEATURES = [
@@ -387,10 +387,10 @@ export const CONSULTATION_FEATURES = [
 // ─── Service Area ─────────────────────────────────────────────────────────────
 
 export const SERVICE_AREA_SECTION = {
-  headline: 'Serving Homeowners Across All 50 States',
+  headline: 'Bathroom Remodeling in Austin & the Surrounding Area',
   subheadline:
-    'Wherever you call home, our remodeling specialists are ready to help you plan and build the bathroom you deserve.',
-  cta: 'Book a Free Consultation',
+    'We serve Austin and the greater Austin metro — from Round Rock and Cedar Park to Georgetown, Kyle, and beyond.',
+  cta: 'Book Your Free Bathroom Remodel Consultation',
 } as const
 
 export const US_STATES = [
@@ -456,7 +456,7 @@ export const SERVICE_AREAS = US_STATES.map((s) => ({
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
 
 export const FAQ_SECTION = {
-  headline: 'Bathroom Remodeling FAQs',
+  headline: 'Bathroom Remodeling FAQs — Austin, TX',
   cta: 'Ask About My Bathroom Project',
 } as const
 
@@ -469,57 +469,63 @@ export type FAQ = {
 export const FAQS: FAQ[] = [
   {
     id: 'faq-cost',
-    question: 'How much does a bathroom remodel cost?',
+    question: 'How much does a bathroom remodel cost in Austin, TX?',
     answer:
-      'The cost depends on bathroom size, material choices, plumbing or electrical changes, and project scope. Request a consultation to discuss your project.',
+      'A bathroom remodel in Austin, TX typically costs between $5,000 and $25,000 depending on bathroom size, materials, and project scope. A cosmetic refresh — new fixtures, tile, and paint — starts around $5,000–$8,000. A full gut remodel with custom tile, new plumbing, and a frameless shower can run $15,000–$25,000+. We provide a free written estimate after reviewing your space so you know exactly what to expect.',
   },
   {
     id: 'faq-timeline',
-    question: 'How long does a bathroom remodel take?',
+    question: 'How long does a bathroom remodel take in Austin?',
     answer:
-      'The timeline depends on the project size, material availability, and work needed. You will receive a timeline estimate before work begins.',
+      'Most bathroom remodels in Austin take 1 to 3 weeks from start to finish. A focused update — new vanity, tile, or fixtures — typically takes 3 to 5 days. A complete gut remodel with plumbing and layout changes takes 2 to 3 weeks. Your confirmed timeline is included in your written estimate before any work begins.',
   },
   {
     id: 'faq-consultation',
-    question: 'Do you offer free consultations?',
+    question: 'Do you offer free consultations for Austin homeowners?',
     answer:
-      'Yes. You can request a free consultation to discuss your bathroom remodeling project.',
+      'Yes — Elite Bath & Tile offers free in-home consultations for homeowners in Austin, Round Rock, Cedar Park, Georgetown, and surrounding areas. During the visit, we review your bathroom, discuss your design goals, and provide guidance on layout, materials, and budget. There is no obligation to proceed. Call (512) 867-5309 to schedule.',
   },
   {
     id: 'faq-small',
-    question: 'Can you help with small bathrooms?',
+    question: 'Can you remodel a small bathroom in Austin?',
     answer:
-      'Yes. Small bathrooms can often be improved with better storage, lighting, shower design, and layout planning.',
+      'Absolutely. Small Austin bathrooms — including half baths and narrow guest baths — often see the biggest transformation from a remodel. We specialize in maximizing storage, improving shower layout, upgrading fixtures, and using tile and lighting to make compact spaces feel larger and more functional.',
   },
   {
     id: 'faq-design',
-    question: 'Do you help with design choices?',
+    question: 'Do you help with design and material selections?',
     answer:
-      'Yes. The team can help you review layout, fixtures, tile, vanity, flooring, and finish options.',
-  },
-  {
-    id: 'faq-photos',
-    question: 'Are project photos real?',
-    answer:
-      'Project photos show completed work from the business. Inspiration images are clearly labeled.',
+      'Yes. Our team guides Austin homeowners through every design decision — tile style and layout, vanity size and finish, shower type, flooring, lighting, and fixture finishes. We work within your budget and style preferences so you can make confident choices without feeling overwhelmed.',
   },
   {
     id: 'faq-estimate',
-    question: 'Do I get a written estimate?',
+    question: 'Do I get a written estimate before work starts?',
     answer:
-      'Yes. After reviewing your project details, the team can provide a written estimate based on the agreed scope.',
+      'Yes. After your free consultation and in-home review, we provide a detailed written estimate that outlines the full scope of work, materials, timeline, and total cost. You approve everything before we begin — no surprise charges, no hidden fees.',
+  },
+  {
+    id: 'faq-areas',
+    question: 'What areas around Austin do you serve?',
+    answer:
+      'We serve Austin and the greater Austin metro area, including Round Rock, Cedar Park, Georgetown, Pflugerville, Leander, Kyle, Buda, Lakeway, Bee Cave, West Lake Hills, Hutto, Manor, and Bastrop. Not sure if we cover your area? Call (512) 867-5309 and we\'ll confirm.',
+  },
+  {
+    id: 'faq-tub-to-shower',
+    question: 'Can you convert a bathtub to a walk-in shower in Austin?',
+    answer:
+      'Yes. Tub-to-shower conversions are one of our most popular Austin remodeling services. We remove the existing tub, reconfigure the space for a walk-in shower, and finish with your choice of tile surround, frameless glass, or a custom shower pan. The project typically takes 5 to 7 days.',
   },
 ]
 
 // ─── Final CTA ────────────────────────────────────────────────────────────────
 
 export const FINAL_CTA = {
-  headline: 'Ready to Plan Your Bathroom Remodel?',
+  headline: 'Ready to Start Your Austin Bathroom Remodel?',
   subheadline:
-    'Request a free consultation and get clear next steps for your bathroom remodeling project.',
-  primaryCta: 'Book a Free Consultation',
-  secondaryCta: 'Call Now to Speak With the Team',
-  trustText: 'Free consultation • Clear estimate • Local service area',
+    'Book a free in-home consultation and get a clear written estimate for your bathroom remodeling project — no pressure, no obligation.',
+  primaryCta: 'Book Your Free Bathroom Remodel Consultation',
+  secondaryCta: 'Request a Free Quote',
+  trustText: 'Free in-home consultation • Written estimate • Serving Austin, TX & surrounding areas',
 } as const
 
 // ─── Footer ───────────────────────────────────────────────────────────────────

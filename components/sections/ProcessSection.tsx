@@ -55,7 +55,7 @@ export function ProcessSection() {
           <span className="mb-3 inline-block text-[11px] font-black uppercase tracking-[0.22em] text-gold">
             How It Works
           </span>
-          <h2 className="font-serif text-3xl font-bold text-navy md:text-4xl">
+          <h2 className="font-serif text-[1.75rem] font-bold text-navy sm:text-3xl md:text-4xl 2xl:text-5xl">
             {PROCESS_SECTION.headline}
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-slate">
@@ -64,7 +64,7 @@ export function ProcessSection() {
         </ScrollReveal>
 
         {/* Steps + wave connectors */}
-        <div className="mx-auto mb-16 max-w-3xl">
+        <div className="mx-auto mb-16 max-w-3xl 2xl:max-w-4xl">
           {PROCESS_STEPS.map((step, i) => (
             <div key={step.number}>
               <ProcessStep step={step} index={i} />

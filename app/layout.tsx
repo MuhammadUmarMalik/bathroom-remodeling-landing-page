@@ -3,7 +3,7 @@ import { Inter, Playfair_Display } from 'next/font/google'
 import { siteMetadata } from './metadata'
 import { SiteHeader } from '@/components/layout'
 import { Footer } from '@/components/sections'
-// import { getLocalBusinessSchema } from '@/lib/schema'
+import { getLocalBusinessSchema, getFAQSchema } from '@/lib/schema'
 import './globals.css'
 
 export const metadata = siteMetadata
@@ -24,7 +24,8 @@ const playfair = Playfair_Display({
 })
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  // const schema = getLocalBusinessSchema()
+  const localBusinessSchema = getLocalBusinessSchema()
+  const faqSchema = getFAQSchema()
 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
@@ -32,7 +33,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Google Tag Manager placeholder — replace GTM-XXXXXXX with your ID */}
         {/* <script ... /> */}
 
-       
+        {/* LocalBusiness structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        {/* FAQPage structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
         {/* Google Tag Manager noscript placeholder */}

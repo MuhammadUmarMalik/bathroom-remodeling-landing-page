@@ -41,7 +41,7 @@ export function ProcessStep({ step, index = 0 }: ProcessStepProps) {
   const baseDelay = index * 0.12
 
   return (
-    <div className={cn('flex w-full', isRight ? 'justify-end' : 'justify-start')}>
+    <div className={cn('flex w-full justify-center', isRight ? 'md:justify-end' : 'md:justify-start')}>
       <motion.div
         custom={index}
         variants={cardVariants}
@@ -49,7 +49,7 @@ export function ProcessStep({ step, index = 0 }: ProcessStepProps) {
         whileInView="visible"
         viewport={{ once: true, margin: '-48px' }}
         className={cn(
-          'relative w-[90%] md:w-[54%] overflow-hidden',
+          'relative w-full sm:w-[90%] md:w-[54%] overflow-hidden',
           'bg-white rounded-[28px] border border-stone-100/80',
           'shadow-[0_4px_32px_rgba(0,0,0,0.07),0_1px_4px_rgba(0,0,0,0.04)]',
           'p-7 md:p-9 flex flex-col items-start gap-3'

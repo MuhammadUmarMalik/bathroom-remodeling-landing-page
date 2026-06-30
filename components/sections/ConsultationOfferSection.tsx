@@ -11,7 +11,7 @@ export function ConsultationOfferSection() {
   return (
     <Section id="consultation" bg="navy">
       <Container>
-        <div className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-5xl items-center gap-8 sm:gap-12 lg:grid-cols-2 2xl:max-w-6xl">
 
           {/* Left — offer features */}
           <div>
@@ -34,9 +34,9 @@ export function ConsultationOfferSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55, ease: [0, 0, 0.2, 1] as const }}
-            className="rounded-2xl border border-gold/20 bg-navy-light p-8 text-center shadow-lg"
+            className="rounded-2xl border border-gold/20 bg-navy-light p-6 sm:p-8 text-center shadow-lg"
           >
-            <p className="mb-2 font-serif text-2xl font-bold text-warm-white">
+            <p className="mb-2 font-serif text-xl sm:text-2xl font-bold text-warm-white">
               Ready to get started?
             </p>
             <p className="mb-8 text-sm text-warm-white/70">

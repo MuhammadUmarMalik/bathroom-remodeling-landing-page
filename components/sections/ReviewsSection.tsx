@@ -25,15 +25,15 @@ export function ReviewsSection() {
         className="marquee-wrap mb-14 overflow-hidden py-4"
         style={{
           maskImage:
-            'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+            'linear-gradient(to right, transparent, black 4%, black 96%, transparent)',
         }}
       >
         <div
-          className="marquee-track-reverse flex w-max gap-5"
+          className="marquee-track-reverse flex w-max gap-4 sm:gap-5"
           style={{ animationDuration: '40s' }}
         >
           {DOUBLED.map((review, i) => (
-            <div key={`${review.id}-${i}`} className="w-85 shrink-0">
+            <div key={`${review.id}-${i}`} className="w-72 sm:w-85 shrink-0">
               <ReviewCard review={review} index={0} />
             </div>
           ))}

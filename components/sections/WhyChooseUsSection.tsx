@@ -56,9 +56,9 @@ export function WhyChooseUsSection() {
         </svg>
 
         {/* Radial glow top-right */}
-        <div className="absolute -top-32 right-0 h-[600px] w-[600px] rounded-full bg-gold/[0.07] blur-[130px]" />
+        <div className="absolute -top-32 right-0 h-150 w-150 rounded-full bg-gold/7 blur-[130px]" />
         {/* Radial glow bottom-left */}
-        <div className="absolute -bottom-40 -left-20 h-[500px] w-[500px] rounded-full bg-gold/[0.05] blur-[110px]" />
+        <div className="absolute -bottom-40 -left-20 h-125 w-125 rounded-full bg-gold/5 blur-[110px]" />
 
         {/* Subtle dot grid */}
         <svg className="absolute inset-0 h-full w-full opacity-[0.07]">
@@ -70,8 +70,8 @@ export function WhyChooseUsSection() {
           <rect width="100%" height="100%" fill="url(#wcu-grid)" />
         </svg>
 
-        {/* Decorative large faded number */}
-        <div className="absolute -right-8 top-1/2 -translate-y-1/2 select-none font-serif text-[18rem] font-bold leading-none text-white/[0.025] md:text-[22rem]">
+        {/* Decorative large faded number — hidden on small screens to avoid overflow */}
+        <div className="absolute -right-8 top-1/2 -translate-y-1/2 select-none font-serif font-bold leading-none text-white/2.5 hidden sm:block text-[12rem] md:text-[18rem] lg:text-[22rem]">
           01
         </div>
       </div>
@@ -96,14 +96,14 @@ export function WhyChooseUsSection() {
             </div>
 
             {/* Headline */}
-            <h2 className="mb-6 font-serif text-3xl font-bold leading-[1.15] text-white md:text-4xl xl:text-5xl">
+            <h2 className="mb-6 font-serif text-[1.85rem] font-bold leading-[1.15] text-white sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl">
               {WHY_US_SECTION.headline}
             </h2>
 
             {/* Gold rule */}
             <motion.div
               variants={lineGrow}
-              className="mb-6 h-[2px] w-16 origin-left rounded-full bg-gradient-to-r from-gold-dark via-gold to-gold-light"
+              className="mb-6 h-0.5 w-16 origin-left rounded-full bg-linear-to-r from-gold-dark via-gold to-gold-light"
             />
 
             {/* Subheadline */}
@@ -146,7 +146,7 @@ export function WhyChooseUsSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-60px' }}
-              className="divide-y divide-white/[0.07]"
+              className="divide-y divide-white/7"
             >
               {TRUST_POINTS.map((point, i) => {
                 const IconComponent =
@@ -163,13 +163,13 @@ export function WhyChooseUsSection() {
                   >
                     {/* Hover gold left accent */}
                     <motion.div
-                      className="absolute left-0 top-0 h-full w-[2px] origin-top rounded-full bg-gold"
+                      className="absolute left-0 top-0 h-full w-0.5 origin-top rounded-full bg-gold"
                       initial={{ scaleY: 0, opacity: 0 }}
                       whileHover={{ scaleY: 1, opacity: 1 }}
                       transition={{ duration: 0.3, ease: [0.25, 0, 0.2, 1] as const }}
                     />
 
-                    <div className="flex items-center gap-5 py-5 pl-6 pr-2 transition-colors duration-300 group-hover:bg-white/[0.03]">
+                    <div className="flex items-center gap-3 sm:gap-5 py-5 pl-4 sm:pl-6 pr-2 transition-colors duration-300 group-hover:bg-white/3">
 
                       {/* Number */}
                       <span
@@ -214,7 +214,7 @@ export function WhyChooseUsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.6, ease: [0, 0, 0.2, 1] as const }}
-              className="mt-8 grid grid-cols-3 divide-x divide-white/10 rounded-2xl border border-white/[0.08] bg-white/[0.04] px-2 py-5 backdrop-blur-sm"
+              className="mt-8 grid grid-cols-3 divide-x divide-white/10 rounded-2xl border border-white/8 bg-white/4 px-2 py-5 backdrop-blur-sm"
             >
               {[
                 { value: '100%', label: 'Written estimates' },

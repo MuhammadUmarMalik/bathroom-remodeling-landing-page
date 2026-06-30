@@ -8,7 +8,7 @@ export function Footer() {
 
       {/* Top CTA strip */}
       <div className="border-b border-warm-white/10 bg-navy">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-5 sm:flex-row sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-4 sm:flex-row sm:gap-4 sm:px-6 sm:py-5 lg:px-8 2xl:max-w-screen-2xl 2xl:px-12">
           <p className="text-sm font-medium text-warm-white">
             {FOOTER.cta}
           </p>
@@ -23,7 +23,7 @@ export function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 2xl:max-w-screen-2xl 2xl:px-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
 
           {/* Brand col */}
@@ -108,7 +108,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-warm-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs sm:flex-row sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-1.5 px-4 py-4 text-xs sm:flex-row sm:gap-2 sm:px-6 sm:py-5 lg:px-8 2xl:max-w-screen-2xl 2xl:px-12">
           <p>
             &copy; {FOOTER.copyrightYear} {BRAND.name}. All rights reserved.
           </p>
