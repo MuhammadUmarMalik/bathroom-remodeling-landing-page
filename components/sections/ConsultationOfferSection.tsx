@@ -39,7 +39,7 @@ export function ConsultationOfferSection() {
             <p className="mb-2 font-serif text-xl sm:text-2xl font-bold text-warm-white">
               Ready to get started?
             </p>
-            <p className="mb-8 text-sm text-warm-white/70">
+            <p className="mb-8 text-sm text-warm-white/80">
               Call now and speak directly with a remodeling specialist.
             </p>
 
@@ -48,7 +48,7 @@ export function ConsultationOfferSection() {
               {BRAND.phone}
             </Button>
 
-            <p className="mt-5 text-xs text-warm-white/50">
+            <p className="mt-5 text-xs text-warm-white/70">
               {CONSULTATION_SECTION.supportingLine}
             </p>
           </motion.div>

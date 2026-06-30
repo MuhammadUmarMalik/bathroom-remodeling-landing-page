@@ -15,7 +15,7 @@ const CircularGallery = dynamic(() => import('@/components/ui/CircularGallery'),
 
 const GALLERY_ITEMS = [
   {
-    image: '/BM-1-1.png',
+    image: '/BM-1-1.webp',
     text: 'Master Bath Remodel',
     details: {
       'Project Type': 'Full Bathroom Remodel',
@@ -25,7 +25,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-1-2.png',
+    image: '/BM-1-2.webp',
     text: 'Walk-in Shower',
     details: {
       'Project Type': 'Shower Replacement',
@@ -35,7 +35,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-1-3.png',
+    image: '/BM-1-3.webp',
     text: 'Tile & Flooring',
     details: {
       'Project Type': 'Tile & Flooring Update',
@@ -45,7 +45,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-1-4.png',
+    image: '/BM-1-4.webp',
     text: 'Vanity Update',
     details: {
       'Project Type': 'Vanity & Storage Update',
@@ -55,7 +55,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-BA-1.png',
+    image: '/BM-BA-1.webp',
     text: 'Before & After',
     details: {
       'Project Type': 'Full Bathroom Remodel',
@@ -65,7 +65,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-BA-2.png',
+    image: '/BM-BA-2.webp',
     text: 'Full Remodel',
     details: {
       'Project Type': 'Full Bathroom Remodel',
@@ -75,7 +75,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-BA-3.png',
+    image: '/BM-BA-3.webp',
     text: 'Bathroom Design',
     details: {
       'Project Type': 'Design & Renovation',
@@ -85,7 +85,7 @@ const GALLERY_ITEMS = [
     },
   },
   {
-    image: '/BM-BA-4.png',
+    image: '/BM-BA-4.webp',
     text: 'Tub Conversion',
     details: {
       'Project Type': 'Tub-to-Shower Conversion',

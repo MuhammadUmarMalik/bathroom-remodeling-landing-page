@@ -45,7 +45,7 @@ export function WhyChooseUsSection() {
       className="relative overflow-hidden py-24! md:py-32!"
     >
       {/* ── Background texture ── */}
-      <div className="pointer-events-none absolute inset-0 select-none" aria-hidden>
+      <div className="pointer-events-none absolute inset-0 select-none" aria-hidden="true">
         {/* Noise grain overlay */}
         <svg className="absolute inset-0 h-full w-full opacity-[0.03]">
           <filter id="noise">
@@ -133,7 +133,7 @@ export function WhyChooseUsSection() {
 
             {/* Trust badge */}
             <div className="mt-8 flex items-center gap-2">
-              <Icons.ShieldCheck className="size-4 shrink-0 text-gold/70" />
+              <Icons.ShieldCheck className="size-4 shrink-0 text-gold/70" aria-hidden="true" />
               <span className="text-sm text-white/40">
                 Licensed & insured · Austin, TX
               </span>
@@ -174,13 +174,13 @@ export function WhyChooseUsSection() {
                       {/* Number */}
                       <span
                         className="w-8 shrink-0 font-serif text-lg font-bold leading-none text-gold/40 transition-colors duration-300 group-hover:text-gold/80"
-                        aria-hidden
+                        aria-hidden="true"
                       >
                         {String(i + 1).padStart(2, '0')}
                       </span>
 
                       {/* Vertical divider */}
-                      <div className="h-6 w-px shrink-0 bg-white/10" aria-hidden />
+                      <div className="h-6 w-px shrink-0 bg-white/10" aria-hidden="true" />
 
                       {/* Icon */}
                       <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gold/10 text-gold transition-all duration-300 group-hover:bg-gold/20 group-hover:text-gold-light">

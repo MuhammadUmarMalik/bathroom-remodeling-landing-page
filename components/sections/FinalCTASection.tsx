@@ -143,7 +143,7 @@ export function FinalCTASection() {
               />
 
               {/* Call label */}
-              <p className="mb-1.5 text-xs font-semibold uppercase tracking-widest text-warm-white/35">
+              <p className="mb-1.5 text-xs font-semibold uppercase tracking-widest text-warm-white/60">
                 Call Us Directly
               </p>
 
@@ -167,7 +167,7 @@ export function FinalCTASection() {
                     className="rounded-xl border border-white/10 bg-white/5 p-3 text-center"
                   >
                     <p className="mb-1 font-serif text-lg font-bold text-gold">{value}</p>
-                    <p className="text-[11px] leading-tight text-warm-white/45">{label}</p>
+                    <p className="text-[11px] leading-tight text-warm-white/65">{label}</p>
                   </div>
                 ))}
               </div>
@@ -179,7 +179,7 @@ export function FinalCTASection() {
                     <Star key={i} className="size-3.5 fill-gold text-gold" aria-hidden="true" />
                   ))}
                 </div>
-                <p className="text-sm text-warm-white/60">
+                <p className="text-sm text-warm-white/75">
                   <span className="font-semibold text-warm-white">100+</span> five-star reviews
                 </p>
               </div>

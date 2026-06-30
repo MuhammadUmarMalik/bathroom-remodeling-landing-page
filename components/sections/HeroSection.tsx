@@ -16,15 +16,24 @@ export function HeroSection() {
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden bg-navy-dark pt-18">
 
-      {/* ── Background video ── */}
+      {/* ── Background: static WebP on mobile, video on md+ ── */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/hero-image.webp"
+        alt=""
+        aria-hidden="true"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 z-0 h-full w-full object-cover md:hidden"
+      />
       <video
         autoPlay
         muted
         loop
         playsInline
         preload="none"
-        poster="/hero-image.png"
-        className="absolute inset-0 z-0 h-full w-full object-cover"
+        poster="/hero-image.webp"
+        className="absolute inset-0 z-0 h-full w-full object-cover hidden md:block"
         aria-hidden="true"
       >
         <source src="/hero-section-video.mp4" type="video/mp4" />
