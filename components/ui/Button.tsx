@@ -29,7 +29,7 @@ const base =
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-gold text-white hover:bg-gold-dark hover:shadow-[0_8px_28px_rgba(224,120,48,0.55)]',
+    'bg-gold-cta text-white hover:bg-gold-cta-dark hover:shadow-[0_8px_28px_rgba(140,69,20,0.55)]',
   secondary:
     'border-2 border-white/60 text-white bg-transparent hover:bg-white/10 hover:border-white hover:shadow-[0_6px_22px_rgba(255,255,255,0.16)]',
   ghost:

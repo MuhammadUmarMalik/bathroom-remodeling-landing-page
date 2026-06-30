@@ -14,6 +14,9 @@
   --color-gold: #E07830;
   --color-gold-light: #ED8B42;
   --color-gold-dark: #C4662A;
+  /* AA-safe button tokens: #A85518 = 5.28:1 on white; #8C4514 = 7.05:1 on white */
+  --color-gold-cta: #A85518;
+  --color-gold-cta-dark: #8C4514;
   --color-slate: #6B7280;
   --color-slate-dark: #4B5563;
 }
@@ -113,6 +116,26 @@ html {
   animation-play-state: paused;
 }
 
+/* ── Below-fold card animations — triggered on section mount via LazyMount ── */
+/* animation-fill-mode:both holds opacity:0 during the delay, so cards don't flash */
+@keyframes card-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes card-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-rise {
+  animation: card-rise 0.45s cubic-bezier(0, 0, 0.2, 1) both;
+}
+
+.animate-fade {
+  animation: card-fade 0.55s cubic-bezier(0, 0, 0.2, 1) both;
+}
+
 /* ── Hero CSS animations — start before JS hydration so LCP is unblocked ── */
 @keyframes hero-fade-in {
   from { opacity: 0; transform: translateY(16px); }
@@ -129,6 +152,7 @@ html {
 }
 
 .hero-scale-x {
+  transform-origin: left;
   animation: hero-scale-x 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 

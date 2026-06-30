@@ -1,4 +1,5 @@
 export { Button }         from './Button'
+export { LazyMount }      from './LazyMount'
 export { Badge }          from './Badge'
 export { SectionHeading } from './SectionHeading'
 export { TrustBadge }     from './TrustBadge'

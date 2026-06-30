@@ -5,10 +5,15 @@ import type { NextConfig } from 'next'
 // required until a nonce-based CSP is wired through the app. For now this
 // CSP blocks the most dangerous attack vectors (external script injection,
 // framing, MIME sniffing) while keeping the site functional.
+//
+// 'unsafe-eval' is added in development only: React dev mode uses eval() to
+// reconstruct cross-environment callstacks. It is never emitted in production.
+const isDev = process.env.NODE_ENV === 'development'
+
 const ContentSecurityPolicy = [
   "default-src 'self'",
-  // Scripts: self + Google Fonts (font face loading), inline for Next.js hydration
-  "script-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  // Scripts: self + inline (Next.js hydration) + eval in dev only (React callstacks)
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''} https://fonts.googleapis.com`,
   // Styles: self + Google Fonts CSS + inline (Tailwind injects inline styles)
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   // Fonts: self + Google Fonts CDN
@@ -48,6 +53,12 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   compress: true,
+
+  experimental: {
+    // Inline critical CSS and defer non-critical stylesheets, eliminating
+    // render-blocking CSS from dynamically-split Tailwind chunks.
+    optimizeCss: true,
+  },
 
   async headers() {
     return [

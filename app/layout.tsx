@@ -47,7 +47,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col antialiased">
+      {/* suppressHydrationWarning: browser extensions (e.g. ColorZilla) inject
+          attributes like cz-shortcut-listen onto <body> after SSR, causing a
+          hydration mismatch. This prop silences that single-element warning
+          without disabling hydration checks for the rest of the tree. */}
+      <body className="min-h-screen flex flex-col antialiased" suppressHydrationWarning>
         {/* Google Tag Manager noscript placeholder */}
         {/* <noscript>...</noscript> */}
         <SiteHeader />

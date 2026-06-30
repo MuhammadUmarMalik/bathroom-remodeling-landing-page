@@ -2,9 +2,7 @@
 
 import { useRef, useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { MapPin, Clock } from 'lucide-react'
-import { cn } from '@/lib/cn'
 import type { Project } from '@/lib/constants'
 
 type ProjectCardProps = {
@@ -16,7 +14,6 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [glare, setGlare] = useState({ x: 50, y: 50, visible: false })
 
-  /* React Bits GlareCard — white glare follows mouse */
   const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = cardRef.current?.getBoundingClientRect()
     if (!rect) return
@@ -28,20 +25,12 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const onMouseLeave = () => setGlare((g) => ({ ...g, visible: false }))
 
   return (
-    <motion.div
+    <div
       ref={cardRef}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
-        ease: [0, 0, 0.2, 1] as const,
-      }}
-      whileHover={{ y: -6 }}
-      className="group relative overflow-hidden rounded-2xl bg-warm-gray shadow-sm transition-shadow hover:shadow-lg"
+      className="animate-rise group relative overflow-hidden rounded-2xl bg-warm-gray shadow-sm transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+      style={{ animationDelay: `${index * 100}ms` }}
     >
       {/* Image */}
       <div className="relative h-56 overflow-hidden sm:h-64">
@@ -63,7 +52,6 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           }}
         />
 
-        {/* Inspiration label */}
         {project.isInspiration && (
           <span className="absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
             Design Inspiration
@@ -91,6 +79,6 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }

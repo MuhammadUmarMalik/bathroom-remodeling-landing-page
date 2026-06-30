@@ -1,7 +1,5 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { Star } from 'lucide-react'
 import type { Review } from '@/lib/constants'
 
@@ -11,97 +9,57 @@ type ReviewCardProps = {
 }
 
 export function ReviewCard({ review, index = 0 }: ReviewCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null)
-
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-
-  const springX = useSpring(mouseX, { stiffness: 200, damping: 28 })
-  const springY = useSpring(mouseY, { stiffness: 200, damping: 28 })
-
-  const rotateX = useTransform(springY, [-0.5, 0.5], ['8deg', '-8deg'])
-  const rotateY = useTransform(springX, [-0.5, 0.5], ['-8deg', '8deg'])
-
-  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = cardRef.current?.getBoundingClientRect()
-    if (!rect) return
-    mouseX.set((e.clientX - rect.left) / rect.width - 0.5)
-    mouseY.set((e.clientY - rect.top) / rect.height - 0.5)
-  }
-
-  const onMouseLeave = () => {
-    mouseX.set(0)
-    mouseY.set(0)
-  }
-
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{
-        duration: 0.55,
-        delay: index * 0.1,
-        ease: [0, 0, 0.2, 1] as const,
-      }}
-      className="h-full"
-      style={{ perspective: 900 }}
+    <div
+      className="animate-rise group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-[0_2px_20px_rgba(27,42,74,0.07)] ring-1 ring-navy/[0.07] transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_10px_36px_rgba(27,42,74,0.13)]"
+      style={{ animationDelay: `${index * 100}ms` }}
     >
-      <motion.div
-        ref={cardRef}
-        onMouseMove={onMouseMove}
-        onMouseLeave={onMouseLeave}
-        style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        className="group relative flex h-full flex-col overflow-hidden rounded-2xl bg-white p-6 shadow-[0_2px_20px_rgba(27,42,74,0.07)] ring-1 ring-navy/[0.07] transition-shadow duration-300 hover:shadow-[0_10px_36px_rgba(27,42,74,0.13)]"
+      {/* Gold accent bar — top edge */}
+      <div className="absolute inset-x-0 top-0 h-0.75 bg-linear-to-r from-gold/0 via-gold to-gold/0" />
+
+      {/* Decorative oversized quote mark */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-3 right-4 select-none font-serif text-[110px] leading-none text-navy/4"
       >
-        {/* Gold accent bar — top edge */}
-        <div className="absolute inset-x-0 top-0 h-0.75 bg-linear-to-r from-gold/0 via-gold to-gold/0" />
+        &ldquo;
+      </span>
 
-        {/* Decorative oversized quote mark */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none absolute -top-3 right-4 select-none font-serif text-[110px] leading-none text-navy/4"
-        >
-          &ldquo;
-        </span>
+      {/* Stars */}
+      <div
+        role="img"
+        className="mb-4 flex items-center gap-0.5"
+        aria-label={`${review.rating} out of 5 stars`}
+      >
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Star
+            key={i}
+            className="size-4.5"
+            fill={i < review.rating ? '#E07830' : '#E9ECF1'}
+            stroke={i < review.rating ? '#C4662A' : '#CBD5E1'}
+            strokeWidth={1.2}
+          />
+        ))}
+      </div>
 
-        {/* Stars */}
-        <div
-          className="mb-4 flex items-center gap-0.5"
-          aria-label={`${review.rating} out of 5 stars`}
-        >
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star
-              key={i}
-              className="size-4.5"
-              fill={i < review.rating ? '#E07830' : '#E9ECF1'}
-              stroke={i < review.rating ? '#C4662A' : '#CBD5E1'}
-              strokeWidth={1.2}
-            />
-          ))}
+      {/* Review body */}
+      <p className="relative mb-5 grow text-[15px] leading-[1.7] text-slate-dark">
+        &ldquo;{review.text}&rdquo;
+      </p>
+
+      {/* Divider */}
+      <div className="mb-4 h-px bg-linear-to-r from-warm-gray via-warm-gray/60 to-transparent" />
+
+      {/* Author row */}
+      <div className="flex items-center gap-3">
+        <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-navy font-serif text-sm font-bold text-gold shadow-sm ring-2 ring-gold/25">
+          {review.name.charAt(0)}
         </div>
-
-        {/* Review body — grows to fill available space, pushing author to bottom */}
-        <p className="relative mb-5 grow text-[15px] leading-[1.7] text-slate-dark">
-          &ldquo;{review.text}&rdquo;
-        </p>
-
-        {/* Divider */}
-        <div className="mb-4 h-px bg-linear-to-r from-warm-gray via-warm-gray/60 to-transparent" />
-
-        {/* Author row */}
-        <div className="flex items-center gap-3">
-          {/* Avatar */}
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-navy font-serif text-sm font-bold text-gold shadow-sm ring-2 ring-gold/25">
-            {review.name.charAt(0)}
-          </div>
-
-          <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-navy">{review.name}</p>
-            <p className="text-xs text-slate">{review.city}</p>
-          </div>
+        <div className="min-w-0">
+          <p className="truncate text-sm font-semibold text-navy">{review.name}</p>
+          <p className="text-xs text-slate">{review.city}</p>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   )
 }

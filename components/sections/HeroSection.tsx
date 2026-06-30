@@ -34,12 +34,13 @@ export function HeroSection() {
         muted
         loop
         playsInline
-        preload="none"
-        poster="/hero-image.webp"
+        preload="metadata"
+        poster="https://pixabay.com/videos/download/video-3967_medium.mp4"
         className="absolute inset-0 z-0 h-full w-full object-cover"
-        aria-hidden="true"
+        aria-hidden="true"  
       >
-        <source media="(min-width: 768px)" src="/hero-section-video.mp4" type="video/mp4" />
+        <source media="(min-width: 768px)" src="https://pixabay.com/videos/download/video-3967_medium.mp4" type="video/webm" />
+        <source media="(min-width: 768px)" src="https://pixabay.com/videos/download/video-3967_medium.mp4" type="video/mp4" />
       </video>
 
       {/* ── Overlay ── */}
@@ -83,7 +84,7 @@ export function HeroSection() {
             {/* Gold accent line — CSS scale-x animation */}
             <div
               aria-hidden="true"
-              className="hero-scale-x mb-5 h-0.5 w-20 origin-left rounded-full"
+              className="hero-scale-x mb-5 h-0.5 w-20 rounded-full"
               style={{
                 background: 'linear-gradient(to right, #E07830, transparent)',
                 animationDelay: '80ms',
